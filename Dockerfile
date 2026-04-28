@@ -2,7 +2,7 @@ FROM ghcr.io/peergos/web-ui:master
 
 # Set environment variables
 ENV PEERGOS_PATH=/data
-ENV PEERGOS_PORT=80
+ENV PEERGOS_PORT=3000
 
 # Create data directories
 RUN mkdir -p /data
