@@ -1,0 +1,8 @@
+-use-s3 true
+-authed-s3-reads true
+-direct-s3-writes true
+-s3.accessKey 8TLD406PPKLZEDYTM2UL
+-s3.bucket 7enjeux
+-s3.region eu-west-1
+-s3.region.endpoint eu-west-1.s3.fil.one
+-s3.secretKey Vt9Fq3uUSNC1jVg9KrSk+kCfjWCZbz75WwJekOOm
