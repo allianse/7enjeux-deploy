@@ -1,0 +1,9 @@
+.git
+.github
+*.md
+LICENSE
+.gitignore
+*.log
+.DS_Store
+.env
+.env.local
