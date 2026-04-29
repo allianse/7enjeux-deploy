@@ -2,7 +2,7 @@ FROM ghcr.io/peergos/web-ui:master
 
 # Set environment variables
 ENV PEERGOS_PATH=/data
-ENV PEERGOS_PORT=8000
+ENV PEERGOS_PORT=8080
 
 # Create data directories
 RUN mkdir -p /data
@@ -11,7 +11,7 @@ RUN mkdir -p /data
 # 8000 - Web interface
 # 4001 - IPFS swarm
 # 5001 - IPFS API
-EXPOSE 8000 4001 5001
+EXPOSE 8080 4001 5001
 
 # Start Peergos
 CMD ["java", "-jar", "/app/peergos.jar", "-PEERGOS_PATH", "/data"]
