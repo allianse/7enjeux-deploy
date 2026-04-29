@@ -1,20 +1,18 @@
-FROM ghcr.io/peergos/web-ui:master
+FROM eclipse-temurin:21-jdk-alpine
+LABEL "language"="java"
+LABEL "framework"="peergos"
 
-# Set environment variables
+WORKDIR /opt/peergos
+
+# Download Peergos server
+RUN wget -q https://github.com/Peergos/Peergos/releases/download/v0.3.5/Peergos.jar && \
+    chmod +x Peergos.jar
+
 ENV PEERGOS_PATH=/data
-ENV PEERGOS_PORT=8000
+ENV PEERGOS_PORT=7777
 
-# Create data directories
 RUN mkdir -p /data
 
-# Expose ports
-# 8000 - Web interface
-# 4001 - IPFS swarm
-# 5001 - IPFS API
-EXPOSE 8000 4001 5001
+EXPOSE 7777 4001 5001
 
-# Install xdg-utils
-RUN apt-get update && apt-get install -y xdg-utils
-
-# Start Peergos with correct JAR path
-CMD ["-PEERGOS_PATH", "/data"]
+CMD ["java", "-Dpeergos.port=7777", "-Dpeergos.ipfs.bind.address=0.0.0.0", "-jar", "Peergos.jar"]
