@@ -1,11 +1,11 @@
 FROM ghcr.io/peergos/web-ui:master
 
 # Set environment variables
-ENV PEERGOS_PATH=/data
+ENV PEERGOS_PATH=/opt/peergos/data
 ENV PEERGOS_PORT=8000
 
 # Create data directories
-RUN mkdir -p /data
+RUN mkdir -p /opt/peergos/data
 
 # Expose ports
 # 8000 - Web interface
@@ -14,4 +14,4 @@ RUN mkdir -p /data
 EXPOSE 8000 4001 5001
 
 # Start Peergos
-CMD ["java", "-jar", "/app/peergos.jar", "-PEERGOS_PATH", "/data"]
+CMD ["java", "-jar", "/app/peergos.jar", "-PEERGOS_PATH", "/opt/peergos/data"]
