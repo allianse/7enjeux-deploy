@@ -11,10 +11,11 @@ RUN mkdir -p /opt/peergos/data
 # 8000 - Web interface
 # 4001 - IPFS swarm
 # 5001 - IPFS API
-EXPOSE 8000 4001 5001
+EXPOSE 7777 8000 4001 5001
 
 # Start Peergos
-CMD ["java", "-jar", "/app/peergos.jar", "-PEERGOS_PATH", "/data"]
+ENTRYPOINT ["java", "-jar", "/app/peergos.jar"]
+CMD ["-PEERGOS_PATH", "/data"]
 
 # xdg-open
 RUN apt-get update && apt-get install -y xdg-utils
