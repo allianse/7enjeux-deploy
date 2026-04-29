@@ -17,5 +17,4 @@ EXPOSE 8000 4001 5001
 RUN apt-get update && apt-get install -y xdg-utils
 
 # Start Peergos with correct JAR path
-ENTRYPOINT ["java", "-jar", "/opt/peergos/server/Peergos.jar"]
 CMD ["-PEERGOS_PATH", "/data"]
