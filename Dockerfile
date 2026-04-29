@@ -1,4 +1,4 @@
-FROM peergos/peergos:latest
+FROM  ghcr.io/peergos/web-ui:master
 
 # Set environment variables
 ENV PEERGOS_PATH=/data
