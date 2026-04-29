@@ -1,0 +1,302 @@
+# yaml-language-server: $schema=https://schema.zeabur.app/template.json
+apiVersion: zeabur.com/v1
+kind: Template
+metadata:
+    name: Peergos
+spec:
+    description: |
+        Peergos is a peer-to-peer encrypted storage, social network, and application platform. It uses end-to-end encryption with an embedded SQLite database, providing a private alternative to cloud storage with file sharing, messaging, and a calendar.
+    coverImage: https://avatars.githubusercontent.com/u/19361091
+    icon: https://avatars.githubusercontent.com/u/19361091
+    variables:
+        - key: PUBLIC_DOMAIN
+          type: DOMAIN
+          name: Domain
+          description: The domain to access Peergos
+    tags:
+        - Storage
+        - Security
+    readme: |
+        # Peergos
+
+        A peer-to-peer encrypted file storage, social network, and application platform built in Java. All data is end-to-end encrypted on the client before it leaves your device. Peergos uses an embedded SQLite database with no external dependencies.
+
+        ## Getting Started
+
+        1. **Open your domain** — the Peergos web interface loads on port 8000
+        2. **Create your first account** — a single-use signup token is generated at startup and printed in the service logs
+        3. **Check the deployment logs** in Zeabur to find the signup URL with the token
+        4. **Upload files** — drag and drop files into the web interface for encrypted storage
+        5. **Share securely** — create sharing links or grant access to specific users
+
+        ## Key Features
+
+        - End-to-end encryption — data is encrypted on your device before upload
+        - Encrypted file storage with drag-and-drop upload
+        - Secure messenger for private conversations
+        - Encrypted calendar application
+        - Photo gallery with encrypted thumbnails
+        - Embedded SQLite database (zero external dependencies)
+        - File sharing with fine-grained access control
+        - PDF viewer, text editor, and code editor built in
+        - Decentralized architecture with optional federation
+
+        ## License
+
+        AGPL-3.0 — [GitHub](https://github.com/Peergos/Peergos)
+    services:
+        - name: peergos
+          template: PREBUILT_V2
+          spec:
+            id: peergos
+            source:
+                image: ghcr.io/peergos/web-ui:master
+                command:
+                    - daemon
+                    - -listen-host
+                    - 0.0.0.0
+            ports:
+                - id: web
+                  port: 8000
+                  type: HTTP
+            volumes:
+                - id: data
+                  dir: /opt/peergos/data
+            healthCheck:
+                type: HTTP
+                port: web
+                http:
+                    path: /
+          domainKey: PUBLIC_DOMAIN
+localization:
+    es-ES:
+        description: |
+            Peergos es una plataforma P2P de almacenamiento cifrado, red social y aplicaciones. Utiliza cifrado de extremo a extremo con base de datos SQLite integrada, ofreciendo una alternativa privada al almacenamiento en la nube con uso compartido de archivos, mensajeria y calendario.
+        variables:
+            - key: PUBLIC_DOMAIN
+              type: STRING
+              name: Dominio
+              description: El dominio para acceder a Peergos
+        readme: |
+            # Peergos
+
+            Plataforma P2P de almacenamiento cifrado, red social y aplicaciones construida en Java. Todos los datos se cifran de extremo a extremo antes de salir del dispositivo. Base de datos SQLite integrada sin dependencias externas.
+
+            ## Primeros pasos
+
+            1. **Abrir el dominio** — la interfaz web carga en el puerto 8000
+            2. **Crear la primera cuenta** — se genera un token de registro de un solo uso al iniciar
+            3. **Consultar los logs de despliegue** — en Zeabur para encontrar la URL de registro con el token
+            4. **Subir archivos** — arrastrar y soltar para almacenamiento cifrado
+            5. **Compartir de forma segura** — crear enlaces o conceder acceso a usuarios especificos
+
+            ## Caracteristicas
+
+            - Cifrado de extremo a extremo
+            - Almacenamiento cifrado de archivos
+            - Mensajero seguro
+            - Calendario cifrado
+            - Base de datos SQLite integrada
+
+            ## Licencia
+
+            AGPL-3.0 — [GitHub](https://github.com/Peergos/Peergos)
+    id-ID:
+        description: |
+            Peergos adalah platform penyimpanan terenkripsi P2P, jejaring sosial, dan aplikasi. Menggunakan enkripsi end-to-end dengan database SQLite bawaan, menyediakan alternatif penyimpanan cloud pribadi dengan berbagi file, pesan, dan kalender.
+        variables:
+            - key: PUBLIC_DOMAIN
+              type: STRING
+              name: Domain
+              description: Domain untuk mengakses Peergos
+        readme: |
+            # Peergos
+
+            Platform penyimpanan file terenkripsi P2P, jejaring sosial, dan aplikasi yang dibangun dengan Java. Semua data dienkripsi end-to-end sebelum meninggalkan perangkat. Database SQLite bawaan tanpa dependensi eksternal.
+
+            ## Memulai
+
+            1. **Buka domain** — antarmuka web dimuat di port 8000
+            2. **Buat akun pertama** — token pendaftaran sekali pakai dihasilkan saat startup
+            3. **Periksa log deploy** — di Zeabur untuk menemukan URL pendaftaran dengan token
+            4. **Upload file** — seret dan lepas untuk penyimpanan terenkripsi
+            5. **Berbagi dengan aman** — buat tautan berbagi atau berikan akses ke pengguna tertentu
+
+            ## Fitur
+
+            - Enkripsi end-to-end
+            - Penyimpanan file terenkripsi
+            - Pesan aman
+            - Kalender terenkripsi
+            - Database SQLite bawaan
+
+            ## Lisensi
+
+            AGPL-3.0 — [GitHub](https://github.com/Peergos/Peergos)
+    ja-JP:
+        description: |
+            Peergos はピアツーピアの暗号化ストレージ、ソーシャルネットワーク、アプリケーションプラットフォームです。エンドツーエンド暗号化と組み込み SQLite データベースを使用し、ファイル共有、メッセージング、カレンダーを備えたプライベートなクラウドストレージ代替手段です。
+        variables:
+            - key: PUBLIC_DOMAIN
+              type: STRING
+              name: ドメイン
+              description: Peergos にアクセスするためのドメイン
+        readme: |
+            # Peergos
+
+            Java で構築されたピアツーピア暗号化ファイルストレージ・ソーシャルネットワーク・アプリケーションプラットフォーム。デバイスから送信される前にすべてのデータがエンドツーエンドで暗号化されます。外部依存なしの組み込み SQLite。
+
+            ## はじめに
+
+            1. **ドメインを開く** — ポート 8000 で Web インターフェースが読み込まれます
+            2. **最初のアカウントを作成** — 起動時にワンタイムサインアップトークンが生成されます
+            3. **デプロイログを確認** — Zeabur でトークン付きのサインアップ URL を確認
+            4. **ファイルをアップロード** — ドラッグ&ドロップで暗号化保存
+            5. **安全に共有** — 共有リンクを作成または特定ユーザーにアクセス権を付与
+
+            ## 主な機能
+
+            - エンドツーエンド暗号化
+            - 暗号化ファイルストレージ
+            - セキュアメッセンジャー
+            - 暗号化カレンダー
+            - フォトギャラリー
+            - 組み込み SQLite（外部依存なし）
+
+            ## ライセンス
+
+            AGPL-3.0 — [GitHub](https://github.com/Peergos/Peergos)
+    ko-KR:
+        description: |
+            Peergos는 P2P 암호화 저장소, 소셜 네트워크, 애플리케이션 플랫폼입니다. 엔드투엔드 암호화와 내장 SQLite 데이터베이스를 사용하여 파일 공유, 메시징, 캘린더 기능을 갖춘 프라이빗 클라우드 스토리지 대안을 제공합니다.
+        variables:
+            - key: PUBLIC_DOMAIN
+              type: STRING
+              name: 도메인
+              description: Peergos에 접속할 도메인
+        readme: |
+            # Peergos
+
+            Java로 구축된 P2P 암호화 파일 저장소, 소셜 네트워크, 애플리케이션 플랫폼. 모든 데이터가 장치에서 전송되기 전에 엔드투엔드 암호화됩니다. 외부 의존성 없는 내장 SQLite.
+
+            ## 시작하기
+
+            1. **도메인 열기** — 포트 8000에서 웹 인터페이스 로드
+            2. **첫 번째 계정 생성** — 시작 시 일회용 가입 토큰이 생성됩니다
+            3. **배포 로그 확인** — Zeabur에서 토큰이 포함된 가입 URL 확인
+            4. **파일 업로드** — 드래그 앤 드롭으로 암호화 저장
+            5. **안전한 공유** — 공유 링크 생성 또는 특정 사용자에게 접근 권한 부여
+
+            ## 주요 기능
+
+            - 엔드투엔드 암호화
+            - 암호화 파일 저장소
+            - 보안 메신저
+            - 암호화 캘린더
+            - 포토 갤러리
+            - 내장 SQLite (외부 의존성 없음)
+
+            ## 라이선스
+
+            AGPL-3.0 — [GitHub](https://github.com/Peergos/Peergos)
+    th-TH:
+        description: |
+            Peergos คือแพลตฟอร์มจัดเก็บข้อมูลเข้ารหัสแบบ P2P โซเชียลเน็ตเวิร์ก และแอปพลิเคชัน ใช้การเข้ารหัสแบบ end-to-end กับฐานข้อมูล SQLite ในตัว เป็นทางเลือกส่วนตัวแทนคลาวด์สตอเรจ พร้อมแชร์ไฟล์ ข้อความ และปฏิทิน
+        variables:
+            - key: PUBLIC_DOMAIN
+              type: STRING
+              name: โดเมน
+              description: โดเมนสำหรับเข้าถึง Peergos
+        readme: |
+            # Peergos
+
+            แพลตฟอร์มจัดเก็บไฟล์เข้ารหัสแบบ P2P โซเชียลเน็ตเวิร์ก และแอปพลิเคชันที่สร้างด้วย Java ข้อมูลทั้งหมดถูกเข้ารหัส end-to-end ก่อนออกจากอุปกรณ์ ฐานข้อมูล SQLite ในตัว ไม่ต้องพึ่งพาบริการภายนอก
+
+            ## เริ่มต้นใช้งาน
+
+            1. **เปิดโดเมน** — อินเทอร์เฟซเว็บโหลดที่พอร์ต 8000
+            2. **สร้างบัญชีแรก** — โทเค็นลงทะเบียนครั้งเดียวถูกสร้างตอนเริ่มต้น
+            3. **ตรวจสอบล็อก** — ใน Zeabur เพื่อหา URL ลงทะเบียนพร้อมโทเค็น
+            4. **อัพโหลดไฟล์** — ลากและวางเพื่อจัดเก็บแบบเข้ารหัส
+            5. **แชร์อย่างปลอดภัย** — สร้างลิงก์แชร์
+
+            ## ฟีเจอร์หลัก
+
+            - เข้ารหัส end-to-end
+            - จัดเก็บไฟล์เข้ารหัส
+            - แมสเสจเจอร์ที่ปลอดภัย
+            - ฐานข้อมูล SQLite ในตัว
+
+            ## สัญญาอนุญาต
+
+            AGPL-3.0 — [GitHub](https://github.com/Peergos/Peergos)
+    zh-CN:
+        description: |
+            Peergos 是一个点对点加密存储、社交网络和应用平台。使用端到端加密与嵌入式 SQLite 数据库，提供私密的云存储替代方案，包含文件共享、消息和日历功能。
+        variables:
+            - key: PUBLIC_DOMAIN
+              type: STRING
+              name: 域名
+              description: 访问 Peergos 的域名
+        readme: |
+            # Peergos
+
+            以 Java 构建的点对点加密文件存储、社交网络和应用平台。所有数据在离开设备前都会进行端到端加密。使用嵌入式 SQLite 数据库，无需外部依赖。
+
+            ## 开始使用
+
+            1. **打开域名** — Peergos 网页界面在 8000 端口加载
+            2. **创建首个账号** — 启动时会生成一次性注册令牌并显示在服务日志中
+            3. **查看部署日志** — 在 Zeabur 中找到包含令牌的注册网址
+            4. **上传文件** — 拖放文件至网页界面进行加密存储
+            5. **安全共享** — 创建共享链接或授权特定用户访问
+
+            ## 主要功能
+
+            - 端到端加密
+            - 加密文件存储
+            - 安全即时通讯
+            - 加密日历
+            - 照片库
+            - 嵌入式 SQLite 数据库（零外部依赖）
+            - 精细访问控制的文件共享
+            - 内置 PDF 查看器、文本编辑器
+
+            ## 许可证
+
+            AGPL-3.0 — [GitHub](https://github.com/Peergos/Peergos)
+    zh-TW:
+        description: |
+            Peergos 是一個點對點加密儲存、社交網路和應用平台。使用端對端加密與嵌入式 SQLite 資料庫，提供私密的雲端儲存替代方案，包含檔案分享、訊息和行事曆功能。
+        variables:
+            - key: PUBLIC_DOMAIN
+              type: STRING
+              name: 網域
+              description: 存取 Peergos 的網域
+        readme: |
+            # Peergos
+
+            以 Java 建構的點對點加密檔案儲存、社交網路和應用平台。所有資料在離開裝置前都會進行端對端加密。使用嵌入式 SQLite 資料庫，無需外部依賴。
+
+            ## 開始使用
+
+            1. **開啟網域** — Peergos 網頁介面在 8000 連接埠載入
+            2. **建立首個帳號** — 啟動時會產生一次性註冊令牌並顯示在服務日誌中
+            3. **查看部署日誌** — 在 Zeabur 中找到包含令牌的註冊網址
+            4. **上傳檔案** — 拖放檔案至網頁介面進行加密儲存
+            5. **安全分享** — 建立分享連結或授權特定使用者存取
+
+            ## 主要功能
+
+            - 端對端加密
+            - 加密檔案儲存
+            - 安全即時通訊
+            - 加密行事曆
+            - 相片藝廊
+            - 嵌入式 SQLite 資料庫（零外部依賴）
+            - 精細存取控制的檔案分享
+            - 內建 PDF 檢視器、文字編輯器
+
+            ## 授權
+
+            AGPL-3.0 — [GitHub](https://github.com/Peergos/Peergos)
