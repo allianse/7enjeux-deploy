@@ -16,7 +16,7 @@ EXPOSE 8000 4001 5001
 # Start Peergos
 CMD ["java", "-jar", "/app/peergos.jar", "-PEERGOS_PATH", "/data"]
 
-FROM openjdk:17-slim
+FROM eclipse-temurin:17-jdk-jammy
 
 LABEL "language"="java"
 
@@ -33,8 +33,8 @@ COPY . .
 # Build with Ant (adjust the target as needed for your project)
 RUN ant build
 
-# Expose port 8000 for your application
-EXPOSE 8000
+# Expose port 8080 for your application
+EXPOSE 8080
 
 # Start your application (adjust the command based on your project)
 CMD ["java", "-jar", "dist/app.jar"]
