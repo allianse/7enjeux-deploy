@@ -21,9 +21,6 @@ RUN apt-get update && \
     apt-get install -y ant && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy your project files
-COPY . .
-
 # Build with Ant (adjust the target as needed for your project)
 RUN ant build
 
@@ -33,5 +30,3 @@ RUN ant build
 # 5001 - IPFS API
 EXPOSE 8000 4001 5001
 
-# Start your application (adjust the command based on your project)
-CMD ["java", "-jar", "dist/app.jar"]
