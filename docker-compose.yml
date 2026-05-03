@@ -1,9 +1,4 @@
-# yaml-language-server: $schema=https://schema.zeabur.app/template.json
-apiVersion: zeabur.com/v1
-kind: Template
-metadata:
     name: Peergos
-spec:
     description: |
         Peergos is a peer-to-peer encrypted storage, social network, and application platform. It uses end-to-end encryption with an embedded SQLite database, providing a private alternative to cloud storage with file sharing, messaging, and a calendar.
     coverImage: https://avatars.githubusercontent.com/u/19361091
