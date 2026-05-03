@@ -1,6 +1,5 @@
     name: Peergos
     services:
-            source:
                 image: ghcr.io/peergos/web-ui::master
                 command:
                     - daemon
