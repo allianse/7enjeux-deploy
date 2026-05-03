@@ -18,4 +18,4 @@
                 port: web
                 http:
                     path: /
-          domainKey: mediateurs.7enjeux.org
+            domainKey: mediateurs.7enjeux.org
