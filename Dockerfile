@@ -1,4 +1,4 @@
-FROM ghcr.io/peergos/web-ui:master
+FROM peergos/server:latest
 LABEL "language"="java"
 LABEL "framework"="peergos"
 
