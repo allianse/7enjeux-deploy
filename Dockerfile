@@ -1,16 +1,14 @@
 FROM ghcr.io/peergos/web-ui:master
-
 LABEL "language"="java"
+LABEL "framework"="peergos"
 
-# Set environment variables
-ENV PEERGOS_PATH=/data
-ENV PEERGOS_PORT=8000
+WORKDIR /app
 
-# Create data directories
-RUN mkdir -p /data
+# Create data directory
+RUN mkdir -p /opt/peergos/data
 
 # Expose ports
-# 8000 - Web interface
-# 4001 - IPFS swarm
-# 5001 - IPFS API
 EXPOSE 8000 4001 5001
+
+# Run the Peergos daemon
+CMD ["daemon", "-listen-host", "0.0.0.0", "-public-domain", "7enjeux.zeabur.app", "-public-server", "true", "-announce-ipfs-addresses", "/ip4/0.0.0.0/tcp/4001,/ip4/0.0.0.0/udp/4001/quic-v1", "-log-to-console", "true"]
