@@ -12,13 +12,12 @@ backend:
       - "8000"
 
 networks:
-      - dokploy-network
+      dokploy-network:
+    external: true
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.<nom-unique>.rule=Host(`7enjeux.org`)"
       - "traefik.http.routers.<nom-unique>.entrypoints=websecure"
       - "traefik.http.routers.<nom-unique>.tls.certResolver=letsencrypt"
       - "traefik.http.services.<nom-unique>.loadbalancer.server.port=443"
-networks:
-  dokploy-network:
-    external: true
+  
