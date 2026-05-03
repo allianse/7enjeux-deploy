@@ -10,5 +10,8 @@ RUN mkdir -p /opt/peergos/data
 # Expose ports
 EXPOSE 8000 4001 5001
 
+# Set environment to disable desktop app launcher
+ENV PEERGOS_HEADLESS=true
+
 # Run the Peergos daemon
-CMD ["daemon", "-listen-host", "0.0.0.0", "-public-domain", "7enjeux.zeabur.app", "-public-server", "true", "-announce-ipfs-addresses", "/ip4/0.0.0.0/tcp/4001,/ip4/0.0.0.0/udp/4001/quic-v1", "-log-to-console", "true"]
+CMD ["java", "-jar", "/app/peergos.jar", "--port=8000", "--headless", "daemon", "-listen-host", "0.0.0.0", "-public-domain", "7enjeux.zeabur.app", "-public-server", "true", "-announce-ipfs-addresses", "/ip4/0.0.0.0/tcp/4001,/ip4/0.0.0.0/udp/4001/quic-v1", "-log-to-console", "true"]
