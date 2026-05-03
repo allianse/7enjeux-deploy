@@ -14,6 +14,3 @@ RUN mkdir -p /data
 # 4001 - IPFS swarm
 # 5001 - IPFS API
 EXPOSE 8000 4001 5001
-
-# Start Peergos with the command from docker-compose
-CMD ["daemon", "-listen-host", "0.0.0.0", "-public-domain", "panel.7enjeux.org", "-public-server", "true", "-log-to-console", "true"]
