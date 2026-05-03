@@ -1,10 +1,10 @@
     name: Peergos
     services:
-                image: ghcr.io/peergos/web-ui::master
-                command:
-                    - daemon
-                    - -listen-host
-                    - 0.0.0.0
+            image: ghcr.io/peergos/web-ui::master
+            command:
+                - daemon
+                - -listen-host
+                - 0.0.0.0
             ports:
                 - id: web
                   port: 8000
