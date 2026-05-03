@@ -11,10 +11,4 @@ services:
 networks:
   my_network:
     external: true
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.7enjeux.rule=Host(`panel.7enjeux.org`)"
-      - "traefik.http.routers.7enjeux.entrypoints=websecure"
-      - "traefik.http.routers.7enjeux.tls.certResolver=letsencrypt"
-      - "traefik.http.services.7enjeux.loadbalancer.server.port=443"
   
