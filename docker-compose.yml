@@ -1,18 +1,9 @@
-    name: Peergos
-    services:
-            image: ghcr.io/peergos/web-ui::master
-            command:
-                - daemon
-                - -listen-host
-                - 0.0.0.0
-            ports:
-                  port: 8000
-                  type: HTTP
-            volumes:
-                  dir: /opt/peergos/data
-            healthCheck:
-                type: HTTP
-                port: web
-                http:
-                    path: /
-            domainKey: mediateurs.7enjeux.org
+name: 7enjeux
+services:
+    web-ui:
+        volumes:
+            - /opt/peergos/data
+        image: ghcr.io/peergos/web-ui:master
+        command: daemon -listen-host 0.0.0.0 -public-domain mediateurs.7enjeux.org
+            -public-server true -announce-ipfs-addresses
+            /ip4/$IP/tcp/4001,/ip4/$IP/udp/4001/quic-v1 -log-to-console true
