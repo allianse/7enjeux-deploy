@@ -1,44 +1,4 @@
     name: Peergos
-    description: |
-        Peergos is a peer-to-peer encrypted storage, social network, and application platform. It uses end-to-end encryption with an embedded SQLite database, providing a private alternative to cloud storage with file sharing, messaging, and a calendar.
-    coverImage: https://avatars.githubusercontent.com/u/19361091
-    icon: https://avatars.githubusercontent.com/u/19361091
-    variables:
-        - key: mediateurs.7enjeux.org
-          type: DOMAIN
-          name: Domain
-          description: The domain to access Peergos
-    tags:
-        - Storage
-        - Security
-    readme: |
-        # Peergos
-
-        A peer-to-peer encrypted file storage, social network, and application platform built in Java. All data is end-to-end encrypted on the client before it leaves your device. Peergos uses an embedded SQLite database with no external dependencies.
-
-        ## Getting Started
-
-        1. **Open your domain** — the Peergos web interface loads on port 8000
-        2. **Create your first account** — a single-use signup token is generated at startup and printed in the service logs
-        3. **Check the deployment logs** in Zeabur to find the signup URL with the token
-        4. **Upload files** — drag and drop files into the web interface for encrypted storage
-        5. **Share securely** — create sharing links or grant access to specific users
-
-        ## Key Features
-
-        - End-to-end encryption — data is encrypted on your device before upload
-        - Encrypted file storage with drag-and-drop upload
-        - Secure messenger for private conversations
-        - Encrypted calendar application
-        - Photo gallery with encrypted thumbnails
-        - Embedded SQLite database (zero external dependencies)
-        - File sharing with fine-grained access control
-        - PDF viewer, text editor, and code editor built in
-        - Decentralized architecture with optional federation
-
-        ## License
-
-        AGPL-3.0 — [GitHub](https://github.com/Peergos/Peergos)
     services:
           name: peergos
           icon: https://avatars.githubusercontent.com/u/19361091
@@ -63,4 +23,4 @@
                 port: web
                 http:
                     path: /
-          domainKey: PUBLIC_DOMAIN
+          domainKey: mediateurs.7enjeux.org
