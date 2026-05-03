@@ -8,7 +8,7 @@ services:
             true -announce-ipfs-addresses
             /ip4/$IP/tcp/4001,/ip4/$IP/udp/4001/quic-v1 -log-to-console true
     expose:
-      - "8000"
+      - "443"
 
 networks:
   my_network:
