@@ -40,7 +40,7 @@
 
         AGPL-3.0 — [GitHub](https://github.com/Peergos/Peergos)
     services:
-        - name: peergos
+          name: peergos
           icon: https://avatars.githubusercontent.com/u/19361091
           template: PREBUILT_V2
           spec:
