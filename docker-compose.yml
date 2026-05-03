@@ -15,8 +15,8 @@ networks:
     external: true
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.<nom-unique>.rule=Host(`7enjeux.org`)"
-      - "traefik.http.routers.<nom-unique>.entrypoints=websecure"
-      - "traefik.http.routers.<nom-unique>.tls.certResolver=letsencrypt"
-      - "traefik.http.services.<nom-unique>.loadbalancer.server.port=443"
+      - "traefik.http.routers.7enjeux.rule=Host(`7enjeux.org`)"
+      - "traefik.http.routers.7enjeux.entrypoints=websecure"
+      - "traefik.http.routers.7enjeux.tls.certResolver=letsencrypt"
+      - "traefik.http.services.7enjeux.loadbalancer.server.port=443"
   
