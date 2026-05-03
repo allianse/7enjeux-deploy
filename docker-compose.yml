@@ -6,11 +6,9 @@
                 - -listen-host
                 - 0.0.0.0
             ports:
-                - id: web
                   port: 8000
                   type: HTTP
             volumes:
-                - id: data
                   dir: /opt/peergos/data
             healthCheck:
                 type: HTTP
