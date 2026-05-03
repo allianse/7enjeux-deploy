@@ -4,7 +4,7 @@ services:
         volumes:
             - /opt/peergos/data
         image: ghcr.io/peergos/web-ui:master
-        port: 8000:443
+        port: 443
         command: daemon -listen-host 0.0.0.0 -public-domain mediateurs.7enjeux.org -public-server
             true -announce-ipfs-addresses
             /ip4/$IP/tcp/4001,/ip4/$IP/udp/4001/quic-v1 -log-to-console true
