@@ -12,6 +12,7 @@ backend:
       - "8000"
 
 networks:
+  my_network:
     external: true
     labels:
       - "traefik.enable=true"
