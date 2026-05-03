@@ -15,8 +15,3 @@ networks:
   my_network:
     external: true
 
-labels:
-  - "traefik.enable=true"
-  - "traefik.http.routers.ghost.rule=Host(mediateurs.7enjeux.org)"
-  - "traefik.http.routers.ghost.entrypoints=websecure"
-  - "traefik.http.services.ghost-svc.loadbalancer.server.port=443"
