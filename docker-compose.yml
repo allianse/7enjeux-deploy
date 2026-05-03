@@ -1,4 +1,4 @@
-name: peergosserver-7enjeux
+name: 7enjeux
 services:
     web-ui:
         volumes:
