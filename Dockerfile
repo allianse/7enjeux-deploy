@@ -26,4 +26,4 @@ RUN mkdir -p /data /mnt/peergos
 EXPOSE 8000 4001 5001
 
 # Start Peergos
-CMD ["java", "-jar", "/app/peergos.jar", "-PEERGOS_PATH", "/data""-Dpeergos.fuse.mount=/mnt/peergos", "-Dpeergos.headless=true"]
+CMD ["java", "-jar", "/app/peergos.jar", "-PEERGOS_PATH", "/data", "-Dpeergos.fuse.mount=/mnt/peergos", "-Dpeergos.headless=true"]
